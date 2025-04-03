@@ -1,42 +1,18 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import netlifyLogo from 'public/netlify-logo.svg';
-import githubLogo from 'public/images/github-mark-white.svg';
 
-const navItems = [
-    { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' },
-    { linkText: 'Classics', href: '/classics' }
-];
-
-export function Header() {
-    return (
-        <nav className="flex flex-wrap items-center gap-4 pt-6 pb-12 sm:pt-12 md:pb-24">
-            <Link href="/">
-                <Image src={netlifyLogo} alt="Netlify logo" />
-            </Link>
-            {!!navItems?.length && (
-                <ul className="flex flex-wrap gap-x-4 gap-y-1">
-                    {navItems.map((item, index) => (
-                        <li key={index}>
-                            <Link href={item.href} className="inline-flex px-1.5 py-1 sm:px-3 sm:py-2">
-                                {item.linkText}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            )}
-            <Link
-                href="https://github.com/netlify-templates/next-platform-starter"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden lg:inline-flex lg:ml-auto"
-            >
-                <Image src={githubLogo} alt="GitHub logo" className="w-7" />
-            </Link>
+export default function Header() {
+  return (
+    <header className="bg-white shadow">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 className="text-xl font-bold text-gray-900">Wei Biomed</h1>
+        <nav className="space-x-4">
+          <Link href="/" className="text-gray-700 hover:text-blue-600">首頁</Link>
+          <Link href="/about" className="text-gray-700 hover:text-blue-600">關於我們</Link>
+          <Link href="/services" className="text-gray-700 hover:text-blue-600">產品與服務</Link>
+          <Link href="/news" className="text-gray-700 hover:text-blue-600">最新消息</Link>
+          <Link href="/contact" className="text-gray-700 hover:text-blue-600">聯絡我們</Link>
         </nav>
-    );
+      </div>
+    </header>
+  );
 }
