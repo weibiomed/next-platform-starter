@@ -7,9 +7,9 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-b from-[#0b0d14]/90 to-transparent text-white sticky top-0 z-50">
+    <header className="bg-[#0b0d14] text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Wei Biomed</h1>
+        <h1 className="text-xl font-bold"> </h1>
         <nav className="hidden md:flex space-x-6">
           <Link href="/" className="hover:text-cyan-400">首頁</Link>
           <Link href="/about" className="hover:text-cyan-400">關於我們</Link>
