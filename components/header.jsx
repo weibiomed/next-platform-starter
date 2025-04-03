@@ -1,18 +1,61 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="bg-gray-900 text-white shadow-sm">
+    <header className="bg-[#0b0d14] text-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Wei Biomed</h1>
-        <nav className="space-x-6">
-          <Link href="/" className="hover:underline">首頁</Link>
-          <Link href="/about" className="hover:underline">關於我們</Link>
-          <Link href="/services" className="hover:underline">產品與服務</Link>
-          <Link href="/news" className="hover:underline">最新消息</Link>
-          <Link href="/contact" className="hover:underline">聯絡我們</Link>
+        <nav className="hidden md:flex space-x-6">
+          <Link href="/" className="hover:text-blue-400">首頁</Link>
+          <Link href="/about" className="hover:text-blue-400">關於我們</Link>
+          <Link href="/services" className="hover:text-blue-400">產品與服務</Link>
+          <Link href="/news" className="hover:text-blue-400">最新消息</Link>
+          <Link href="/contact" className="hover:text-blue-400">聯絡我們</Link>
         </nav>
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
       </div>
+
+      {isOpen && (
+        <div className="md:hidden bg-[#0b0d14] px-4 pb-4 space-y-2">
+          <Link href="/" className="block hover:text-blue-400">首頁</Link>
+          <Link href="/about" className="block hover:text-blue-400">關於我們</Link>
+          <Link href="/services" className="block hover:text-blue-400">產品與服務</Link>
+          <Link href="/news" className="block hover:text-blue-400">最新消息</Link>
+          <Link href="/contact" className="block hover:text-blue-400">聯絡我們</Link>
+        </div>
+      )}
     </header>
   );
 }
