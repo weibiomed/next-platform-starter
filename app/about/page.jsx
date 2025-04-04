@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
 import MarkdownContent from '@/components/MarkdownContent';
 
 export default async function AboutPage() {
