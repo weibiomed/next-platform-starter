@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import MarkdownContent from '../../../../components/MarkdownContent';
+import MarkdownContent from '@/components/MarkdownContent';
 
 export async function generateStaticParams() {
   const dir = path.join(process.cwd(), 'content/services');
