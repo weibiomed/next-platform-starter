@@ -6,10 +6,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="py-24 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          引領智慧醫療的未來
+          Title1
         </h1>
         <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-          text1
+          Content1
         </p>
         <Link href="/services">
           <span className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg transition">
