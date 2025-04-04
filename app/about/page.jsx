@@ -1,8 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import MarkdownContent from '@/components/MarkdownContent';
-
+import MarkdownContent from '../../components/MarkdownContent';
 
 export default async function AboutPage() {
   const filePath = path.join(process.cwd(), 'content/about/index.md');
