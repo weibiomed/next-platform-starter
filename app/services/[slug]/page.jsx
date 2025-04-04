@@ -3,8 +3,16 @@ import path from 'path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
-export default async function AboutPage() {
-  const filePath = path.join(process.cwd(), 'content/about/index.md');
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), 'content/services');
+  const files = await fs.readdir(dir);
+  return files.map((filename) => ({
+    slug: filename.replace(/\.md$/, ''),
+  }));
+}
+
+export default async function ServicePost({ params }) {
+  const filePath = path.join(process.cwd(), 'content/services', `${params.slug}.md`);
   const fileContent = await fs.readFile(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
 

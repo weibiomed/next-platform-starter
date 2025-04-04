@@ -2,12 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>CMS 管理後台</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <title>CMS</title>
   </head>
   <body>
     <script>
-      CMS.init();
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script type="module">
+      import { default as CMS } from "https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js";
+      import config from "/config.yml";
+      CMS.init({ config });
     </script>
   </body>
 </html>
