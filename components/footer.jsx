@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
         <div>
           <h2 className="text-white text-lg font-semibold mb-2">Wei Biomed Co. Ltd</h2>
-          <p>推動人工智慧與醫療影像的深度整合，打造未來醫療的智慧基礎。</p>
+          <p> </p>
         </div>
 
         <div>
