@@ -1,7 +1,8 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
+import MarkdownContent from '@/components/MarkdownContent';
+
 
 export async function generateStaticParams() {
   const dir = path.join(process.cwd(), 'content/services');
@@ -11,15 +12,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ServicePost({ params }) {
+export default async function ServicesPost({ params }) {
   const filePath = path.join(process.cwd(), 'content/services', `${params.slug}.md`);
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const { data, content } = matter(fileContent);
-
-  return (
-    <div className="prose prose-dark max-w-3xl mx-auto py-8 px-4">
-      <h1>{data.title}</h1>
-      <ReactMarkdown>{content}</ReactMarkdown>
-    </div>
-  );
+  const { content } = matter(fileContent);
+  return <MarkdownContent content={content} />;
 }

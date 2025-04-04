@@ -1,3 +1,4 @@
+
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -18,11 +19,9 @@ export default async function NewsList() {
       };
     })
   );
-
   const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
   return (
-    <div className="prose prose-dark max-w-3xl mx-auto py-8 px-4">
+    <div className="max-w-3xl mx-auto py-8 px-4 prose prose-dark">
       <h1>最新消息</h1>
       <ul>
         {sorted.map(post => (
