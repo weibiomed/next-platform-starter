@@ -20,7 +20,7 @@ export default async function ServicesList() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 prose">
+    <div className="prose prose-dark max-w-3xl mx-auto py-8 px-4">
       <h1>產品與服務</h1>
       <ul>
         {services.map(service => (

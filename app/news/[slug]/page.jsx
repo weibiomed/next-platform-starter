@@ -17,7 +17,7 @@ export default async function NewsPost({ params }) {
   const { data, content } = matter(fileContent);
 
   return (
-    <div className="max-w-3xl mx-auto py-8 px-4 prose">
+    <div className="prose prose-dark max-w-3xl mx-auto py-8 px-4">
       <h1>{data.title}</h1>
       <p className="text-sm text-gray-400">{data.date}</p>
       <ReactMarkdown>{content}</ReactMarkdown>
