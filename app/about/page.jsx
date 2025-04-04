@@ -7,7 +7,7 @@ import MarkdownContent from '@/components/MarkdownContent';
 export default async function AboutPage() {
   const filePath = path.join(process.cwd(), 'content/about/index.md');
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const { content } = matter(fileContent);
+  const { content, data } = matter(fileContent);  // ← 修正這一行
 
   return (
     <div className="prose prose-dark max-w-3xl mx-auto py-8 px-4">
