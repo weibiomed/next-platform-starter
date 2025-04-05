@@ -9,7 +9,7 @@ export default async function ServicesList() {
   const posts = await Promise.all(
     files.map(async (filename) => {
       const fileContent = await fs.readFile(path.join(dir, filename), 'utf-8');
-      const { content, data } = matter(fileContent); // ✅ 取出 data
+      const { data } = matter(fileContent);
       return {
         slug: filename.replace(/\.md$/, ''),
         title: data.title,
@@ -21,12 +21,16 @@ export default async function ServicesList() {
   const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
   return (
     <div className="prose prose-dark max-w-3xl mx-auto py-8 px-4">
-      {/* ✅ 顯示標題與簡介 */}
-      <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-      {data.intro && <p className="text-lg text-gray-500 mb-6">{data.intro}</p>}
-    
-      {/* ✅ 顯示主內容 */}
-      <MarkdownContent content={content} />
+      <h1>產品與服務</h1>
+      <ul>
+        {sorted.map(post => (
+          <li key={post.slug}>
+            <h2><Link href={`/services/${post.slug}`}>{post.title}</Link></h2>
+            <p className="text-sm text-gray-400">{post.date}</p>
+            <p>{post.intro}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
