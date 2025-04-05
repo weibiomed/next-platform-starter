@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ServicesPost({ params }) {
-  const filePath = path.join(process.cwd(), 'content/services', `${params.slug}.md`);
+  const filePath = path.join(process.cwd(), 'content/services', `${params.slug}`);
   const fileContent = await fs.readFile(filePath, 'utf-8');
   const { content, data } = matter(fileContent); // ✅ 取出 data
 
